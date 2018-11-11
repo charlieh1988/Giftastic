@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <title>Animal Buttons</title>
+</head>
+
+<body>
+  <button id="cat-button">cat</button>
+  <button id="dog-button">dog</button>
+  <button id="bird-button">bird</button>
+  <button id="rabbit-button">rabbit</button>
+  <button id="hamster-button">hamster</button>
+  <button data-animal="skunk">skunk</button>
+  <button data-animal="goldfish">goldfish</button>
+  <button data-animal="ferret">ferret</button>
+  <button data-animal="turtle">turtle</button>
+  <button data-animal="sugar glider">sugar glider</button>
+  <button data-animal="chinchilla">chinchilla</button>
+  <button data-animal="hedgehog">hedgehog</button>
+  <button data-animal="hermit crab">hermit crab</button>
+  <button data-animal="gerbil">gerbil</button>
+  <button data-animal="pygmy goat">pygmy goat</button>
+  <div id="images">
+  </div>
+
+</body>
+<script type="text/javascript">
+
+$("#cat-button").on("click", function() {
+    var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=Hr0e4NivhFXEDBSQFZXjpG7tLSbSm5Bl&q=cats";
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+}).then(function(response) {
+ var imageUrl = response.data.image_original_url;
+ var catImage = $("<img>");
+ catImage.attr("src", imageUrl);
+ catImage.attr("alt", "cat image");
+ $("#images").prepend(catImage);
+
+ });
+});
+
+$("#dog-button").on("click", function() {
+    var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=Hr0e4NivhFXEDBSQFZXjpG7tLSbSm5Bl&q=dog";
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+}).then(function(response) {
+ var imageUrl = response.data.image_original_url;
+ var dogImage = $("<img>");
+ dogImage.attr("src", imageUrl);
+ dogImage.attr("alt", "dog image");
+ $("#images").prepend(dogImage);
+
+ });
+});
+
+$("#bird-button").on("click", function() {
+    var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=Hr0e4NivhFXEDBSQFZXjpG7tLSbSm5Bl&q=birds";
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+}).then(function(response) {
+ var imageUrl = response.data.image_original_url;
+ var birdImage = $("<img>");
+ birdImage.attr("src", imageUrl);
+ birdImage.attr("alt", "bird image");
+ $("#images").prepend(birdImage);
+
+ });
+});
+
+$("#rabbit-button").on("click", function() {
+    var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=Hr0e4NivhFXEDBSQFZXjpG7tLSbSm5Bl&q=rabbits";
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+}).then(function(response) {
+ var imageUrl = response.data.image_original_url;
+ var rabbitImage = $("<img>");
+ rabbitImage.attr("src", imageUrl);
+ rabbitImage.attr("alt", "rabbit image");
+ $("#images").prepend(rabbitImage);
+
+ });
+});
+
+
+
+</script>
+</html>
+  
