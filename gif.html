@@ -16,13 +16,9 @@
   <button id="skunk">skunk</button>
   <button id="goldfish">goldfish</button>
   <button id="ferret">ferret</button>
-  <button data-animal="turtle">turtle</button>
-  <button data-animal="sugar glider">sugar glider</button>
-  <button data-animal="chinchilla">chinchilla</button>
-  <button data-animal="hedgehog">hedgehog</button>
-  <button data-animal="hermit crab">hermit crab</button>
-  <button data-animal="gerbil">gerbil</button>
-  <button data-animal="pygmy goat">pygmy goat</button>
+  <button id="turtle">turtle</button>
+
+  
   <div id="images">
   </div>
 
@@ -149,7 +145,36 @@ $("#ferret-button").on("click", function() {
  });
 });
 
+$("#turtle-button").on("click", function() {
+    var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=Hr0e4NivhFXEDBSQFZXjpG7tLSbSm5Bl&q=turtles";
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+}).then(function(response) {
+ var imageUrl = response.data.image_original_url;
+ var turtleImage = $("<img>");
+ turtleImage.attr("src", imageUrl);
+ turtleImage.attr("alt", "turtle image");
+ $("#images").prepend(turtleImage);
 
+ });
+});
+
+
+$("#turtle-button").on("click", function() {
+    var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=Hr0e4NivhFXEDBSQFZXjpG7tLSbSm5Bl&q=turtles";
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+}).then(function(response) {
+ var imageUrl = response.data.image_original_url;
+ var turtleImage = $("<img>");
+ turtleImage.attr("src", imageUrl);
+ turtleImage.attr("alt", "turtle image");
+ $("#images").prepend(turtleImage);
+
+ });
+});
 
 
 
