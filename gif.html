@@ -14,8 +14,8 @@
   <button id="rabbit-button">rabbit</button>
   <button id="hamster-button">hamster</button>
   <button id="skunk">skunk</button>
-  <button data-animal="goldfish">goldfish</button>
-  <button data-animal="ferret">ferret</button>
+  <button id="goldfish">goldfish</button>
+  <button id="ferret">ferret</button>
   <button data-animal="turtle">turtle</button>
   <button data-animal="sugar glider">sugar glider</button>
   <button data-animal="chinchilla">chinchilla</button>
@@ -118,6 +118,37 @@ $("#skunk-button").on("click", function() {
 
  });
 });
+
+$("#goldfish-button").on("click", function() {
+    var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=Hr0e4NivhFXEDBSQFZXjpG7tLSbSm5Bl&q=goldfish";
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+}).then(function(response) {
+ var imageUrl = response.data.image_original_url;
+ var goldfishImage = $("<img>");
+ goldfishImage.attr("src", imageUrl);
+ goldfishImage.attr("alt", "goldfish image");
+ $("#images").prepend(goldfishImage);
+
+ });
+});
+
+$("#ferret-button").on("click", function() {
+    var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=Hr0e4NivhFXEDBSQFZXjpG7tLSbSm5Bl&q=ferret";
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+}).then(function(response) {
+ var imageUrl = response.data.image_original_url;
+ var ferretImage = $("<img>");
+ ferretImage.attr("src", imageUrl);
+ ferretImage.attr("alt", "ferret image");
+ $("#images").prepend(ferretsImage);
+
+ });
+});
+
 
 
 
